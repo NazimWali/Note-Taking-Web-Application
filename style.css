@@ -1,0 +1,65 @@
+body{
+    margin: 0px;
+    font-size: 15px;
+    font-family: 'Century Gothic', 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+form {
+    border: solid 2px darkblue;
+    border-left: 0px;
+    border-right: 0px;
+    padding: 10px;
+    color: rgb(91, 91, 207);
+   
+}
+
+.navigation {
+    background-color: lightblue;
+    text-align: center;
+    font-size: 25px;
+    font-weight: bold;
+    padding-top: 10px;
+
+}
+
+a:link, a:visited {
+    color: darkblue;
+    padding: 3px 5px;
+    border-radius: 5px;
+}
+
+a:hover {
+    background-color: darkblue;
+    color: white;
+}
+
+.button {
+    color: darkblue;
+    background-color: lightblue;
+    margin: 7px;
+    border: solid 2px darkblue;
+    border-radius: 75px;
+    box-shadow: 3px 3px 3px lightgrey;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-family: 'Century Gothic';
+    font-size: 12px;
+    padding: 5px;
+}
+
+input {
+    margin: 3px;
+}
+
+.inputs {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    width: 15%;
+}
+
+img {
+    display: block;
+    width: 300px;
+    margin: auto;
+}
