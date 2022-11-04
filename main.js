@@ -1,9 +1,10 @@
 class User{
-    constructor(userid, username, fname, lname){
+    constructor(userid, username, fname, lname, password){
         this.userid = userid,
         this.username = username,
         this.firstname = fname,
-        this.lastname = lname
+        this.lastname = lname,
+        this.password = password
     }
 
     getUserid(){
@@ -32,6 +33,13 @@ class User{
     }
     setLastname(lname){
         this.lastname = lname;
+    }
+
+    getPassword(){
+        return this.password;
+    }
+    setPassword(password){
+        this.password = password;
     }
 
 }
@@ -67,9 +75,10 @@ function addUser(e){
     let username = document.getElementById("username").value;
     let fname = document.getElementById("fname").value;
     let lname = document.getElementById("lname").value;
+    let password = document.getElementById("password").value;
 
                 //I know the user id shouldn't really be hard coded in like that
-    user1 = new User(1234, username, fname, lname);
+    user1 = new User(1234, username, fname, lname, password);
     console.log(user1);
 
 }
