@@ -109,3 +109,27 @@ function addNote(e){
 
     console.log(note1);
 }
+
+const usersBtn = document.getElementById("users-btn");
+if(loginform) usersBtn.addEventListener('click', getUsers);
+
+function getUsers(e) {
+    e.preventDefault();
+
+    fetch("http://localhost:3000/users")
+    .then((res) => res.json())
+   // .then((data) => console.log(data))
+    .then((data) => {
+        console.log(data);
+        let ul = document.getElementById("allUsers");
+        data.forEach((user) => {
+            let li = document.createElement('li');
+            let text = document.createTextNode(user.userName);
+            li.appendChild(text);
+            ul.appendChild(li);
+        })
+
+    }).catch((err) => console.log(`Error! ${err}`));
+
+    document.getElementById("allUsers").innerHTML = '';
+}
