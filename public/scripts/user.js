@@ -51,10 +51,8 @@ function register(e) {
     console.log(user);
   
     fetchData("/users/register", user, "POST")
-    .then((res) => res.json())
     .then((data) => {
       setCurrentUser(data);
-      console.log("does it get here");
       window.location.href = "note.html";
     })
     .catch((err) =>{
@@ -70,8 +68,7 @@ function login(e) {
   
     let userName = document.getElementById("username").value;
     let password = document.getElementById("password").value;
-    //let fullName = document.getElementById("fullname").value;
-    let user = new User(userName, password);
+    let user = new User(userName, "", password);
   
     fetchData("/users/login", user, "POST")
     .then((data) => {

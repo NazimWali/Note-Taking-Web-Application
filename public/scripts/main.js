@@ -1,3 +1,21 @@
+let nav = document.querySelector('nav');
+
+if(getCurrentUser()) {
+    nav.innerHTML = `
+        <a href="note.html">My Notes</a>
+        <a id="logout-btn" class="button" >Logout</a>
+        <br>
+        <hr>
+    `
+  } else {
+    nav.innerHTML = `
+        <a href="register.html">Register</a>
+        <a href="login.html" >Login</a>
+        <br>
+        <hr>
+    `
+  }
+
 // Fetch method implementation:
 export async function fetchData(route = '', data = {}, methodType) {
     const response = await fetch(`http://localhost:3000${route}`, {

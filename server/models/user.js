@@ -31,8 +31,6 @@ async function register(user) {
   `
 
   await con.query(sql);
-  console.log(sql);
-  console.log("okayyyy");
   return await login(user);
 }
 
@@ -94,7 +92,6 @@ async function doesUserExist(username) {
 `;
 
   let u = await con.query(sql);
-  console.log(u);
 
   return u;
 }
