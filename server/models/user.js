@@ -23,12 +23,16 @@ async function getAllUsers() {
 // Create  User - Registering
 async function register(user) {
   let cUser = await getUser(user);
-  if(cUser.length > 0) throw Error("Username already in use");
+  let nUser = await doesUserExist(user.username);
+  if(nUser.length > 0) throw Error("Username already in use");
 
-  const sql = `INSERT INTO users (userName, password)
-    VALUES ("${user.userName}", "${user.password}");
+  const sql = `INSERT INTO users (userName, fullName, password)
+    VALUES ("${user.username}", "${user.fullname}", "${user.password}");
   `
+
   await con.query(sql);
+  console.log(sql);
+  console.log("okayyyy");
   return await login(user);
 }
 
@@ -45,7 +49,7 @@ async function login(user) { // {userName: "sda", password: "gsdhjsga"}
 // Update User function
 async function editUser(user) {
   let sql = `UPDATE users 
-    SET userName = "${user.userName}"
+    SET userName = "${user.username}"
     WHERE userID = ${user.userID}
   `;
 
@@ -57,7 +61,7 @@ async function editUser(user) {
 // Delete User function
 async function deleteUser(user) {
   let sql = `DELETE FROM users
-    WHERE userID = ${user.userID}
+    WHERE userID = ${user.userid}
   `
   await con.query(sql);
 }
@@ -69,15 +73,30 @@ async function getUser(user) {
   if(user.userID) {
     sql = `
       SELECT * FROM users
-       WHERE userID = ${user.userID}
+       WHERE userID = ${user.userid}
     `
   } else {
     sql = `
     SELECT * FROM users 
-      WHERE userName = "${user.userName}"
+      WHERE userName = "${user.username}"
   `;
   }
+
   return await con.query(sql);  
+}
+
+async function doesUserExist(username) {
+  let sql;
+
+  sql = `
+  SELECT * FROM users 
+    WHERE userName = "${username}"
+`;
+
+  let u = await con.query(sql);
+  console.log(u);
+
+  return u;
 }
 
 module.exports = { getAllUsers, login, register, editUser, deleteUser};

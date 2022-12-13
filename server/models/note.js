@@ -5,8 +5,9 @@ async function createTable() {
   let sql=`CREATE TABLE IF NOT EXISTS notes (
     noteID INT NOT NULL AUTO_INCREMENT,
     noteContent VARCHAR(255) NOT NULL UNIQUE,
-    CONSTRAINT notePK PRIMARY KEY(noteID)
-    CONSTRAINT userFK FOREIGN KEY(userID) REFERENCES users(userID)
+    userID INT NOT NULL,
+    CONSTRAINT notePK PRIMARY KEY(noteID),
+    CONSTRAINT noteFK FOREIGN KEY(userID) REFERENCES users(userID)
   ); `
   await con.query(sql);
 }
