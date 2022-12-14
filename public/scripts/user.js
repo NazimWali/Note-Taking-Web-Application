@@ -1,4 +1,4 @@
-import { fetchData, setCurrentUser } from './main.js'
+import { fetchData, setCurrentUser, getCurrentUser } from './main.js'
 
 class User{
     constructor(username, fullname, password, userid){
@@ -78,4 +78,12 @@ function login(e) {
     .catch((err) => {
       console.log(`Error!!! ${err.message}`)
     }) 
+}
+
+export function getCurrentUserID(){
+    if(getCurrentUser()){
+        let user = JSON.parse(localStorage.getItem('user'));
+        //console.log(user.userID);
+        return user.userID;
+    }
 }

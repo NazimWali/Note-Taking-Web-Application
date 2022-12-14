@@ -1,8 +1,19 @@
 const express = require('express');
 const Note = require('../models/note');
+const User=require('../models/user');
 const router = express.Router();
 
 router
+  .post('/',async (req,res)=>{
+    try{
+        const notes=await Note.getUserNotes(req.body);
+        res.send(notes);
+    }catch(err){
+        res.status(401).send({message: err.message});
+
+    }
+  })
+
   .post('/create', async (req, res) => {
     try {
       let note = await Note.createNote(req.body);

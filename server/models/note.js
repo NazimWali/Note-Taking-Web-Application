@@ -4,7 +4,7 @@ const con = require("./db_connect");
 async function createTable() {
   let sql=`CREATE TABLE IF NOT EXISTS notes (
     noteID INT NOT NULL AUTO_INCREMENT,
-    noteContent VARCHAR(255) NOT NULL UNIQUE,
+    noteContent VARCHAR(255) NOT NULL,
     userID INT NOT NULL,
     CONSTRAINT notePK PRIMARY KEY(noteID),
     CONSTRAINT noteFK FOREIGN KEY(userID) REFERENCES users(userID)
@@ -15,8 +15,8 @@ createTable();
 
 // Create  Note
 async function createNote(note) {
-    const sql = `INSERT INTO notes (noteContent)
-      VALUES ("${note.noteContent}");
+    const sql = `INSERT INTO notes (noteContent, userID)
+      VALUES ("${note.notecontent}", "${note.userid}");
     `
     await con.query(sql);
   }
@@ -27,14 +27,14 @@ async function readNote(note) {
     
     if(!cNote[0]) throw Error("Note not found");
   
-    return cNote[0].noteContent;
+    return cNote[0].notecontent;
   }
   
 // Update Note
 async function editNote(note) {
     let sql = `UPDATE notes 
-      SET noteContent = "${note.noteContent}"
-      WHERE noteID = ${note.noteID}
+      SET noteContent = "${note.notecontent}"
+      WHERE noteID = ${note.noteid}
     `;
   
     await con.query(sql);
@@ -45,7 +45,7 @@ async function editNote(note) {
 // Delete Note
 async function deleteNote(note) {
     let sql = `DELETE FROM notes
-      WHERE noteID = ${note.noteID}
+      WHERE noteID = ${note.noteid}
     `
     await con.query(sql);
   }
@@ -57,10 +57,23 @@ async function getNote(note) {
     if(note.noteID) {
       sql = `
         SELECT * FROM notes
-         WHERE noteID = ${note.noteID}
+         WHERE noteID = ${note.noteid}
       `
     }
     return await con.query(sql);  
   }
 
-  module.exports = { createNote, readNote, editNote, deleteNote};
+async function getUserNotes(note) {
+    let sql;
+    console.log(note.userid);
+    if(note.userid) {
+      sql = `
+        SELECT * FROM notes
+         WHERE userID = ${note.userid}
+      `
+    }
+    return await con.query(sql);  
+  }
+
+
+  module.exports = { createNote, readNote, editNote, deleteNote, getUserNotes};

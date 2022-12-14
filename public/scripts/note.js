@@ -1,9 +1,12 @@
-import { fetchData } from './main.js'
+//import { get } from '../../server/routes/note.js';
+//import { get } from '../../server/routes/note.js';
+import { fetchData, getCurrentUser } from './main.js'
 
 class Note{
-    constructor(noteid, notecontent){
+    constructor(notecontent, userid, noteid){
         this.noteid = noteid;
         this.notecontent = notecontent;
+        this.userid = userid;
     }
 
     getNoteid(){
@@ -20,6 +23,13 @@ class Note{
         this.notecontent = notecontent;
     }
 
+    getUserid(){
+        return this.userid;
+    }
+    setUserid(userid){
+        this.userid = userid;
+    }
+
 }
 
 let noteform = document.getElementById("noteform");
@@ -29,9 +39,44 @@ function addNote(e){
     e.preventDefault();
 
     let notecontent = document.getElementById("notecontent").value;
+    let user = getCurrentUser();
+    let note = new Note(notecontent, user.userID);
+    console.log(note);
 
-                //same for the noteid
-    note1 = new Note(1234, notecontent);
+    fetchData("/notes/create", note, "POST")
+    .then((data) => {
+        //json.toString(data);
+      console.log(data);
+    })
+    .catch((err) =>{
+      console.log(err);
+    })
+}
 
-    console.log(note1);
+let user = getCurrentUser();
+
+if (user && noteform) showAllNotes();
+
+function showAllNotes(){
+    let user = getCurrentUser();
+    let userid = user.userID;
+    console.log(userid);
+
+    fetchData("/notes/", user, "POST")
+    .then((data) => {
+        let ul=document.getElementById("allnotes");    
+
+        data.forEach((note)=>{
+            let li=document.createElement('li');
+            let text=document.createTextNode(note.noteContent);
+            li.appendChild(text);
+            ul.appendChild(li);
+
+        })
+
+    })
+    .catch((err)=>{
+        console.log(`Error! ${err}`)
+    });  
+
 }
