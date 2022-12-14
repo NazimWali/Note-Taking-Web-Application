@@ -77,6 +77,20 @@ function showAllNotes(){
     })
     .catch((err)=>{
         console.log(`Error! ${err}`)
-    });  
+    });
+
+//    fetchData("/notes/", user,"post")
+//     .then((data)=>{
+//         let ul=document.getElementById("allnotes");
+
+//         data.forEach((note)=>{
+//             let li=document.createElement('li');
+//             let text=document.createTextNode(note.notecontent);
+//             li.appendChild(text);
+//             ul.appendChild(li);
+
+//         })
+//     })
+ //    
 
 }

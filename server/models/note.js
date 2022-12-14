@@ -65,12 +65,18 @@ async function getNote(note) {
 
 async function getUserNotes(note) {
     let sql;
-    console.log(note.userid);
-    if(note.userid) {
+    console.log(note.userID);
+    if(note.userID) {
       sql = `
         SELECT * FROM notes
-         WHERE userID = ${note.userid}
+         WHERE userID = ${note.userID}
       `
+    }
+    else{
+      sql = `
+      SELECT * FROM notes
+       WHERE noteID = ${note.noteid}
+    `
     }
     return await con.query(sql);  
   }
