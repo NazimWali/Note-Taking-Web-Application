@@ -58,9 +58,6 @@ export function removeCurrentUser() {
     window.location.href = "login.html";
 }
 
-//const usersBtn = document.getElementById("users-btn");
-//if(loginform) usersBtn.addEventListener('click', getUsers);
-
 function getUsers(e) {
     e.preventDefault();
 

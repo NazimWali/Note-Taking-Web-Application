@@ -1,5 +1,3 @@
-//import { get } from '../../server/routes/note.js';
-//import { get } from '../../server/routes/note.js';
 import { fetchData, getCurrentUser } from './main.js'
 
 class Note{
@@ -36,7 +34,7 @@ let noteform = document.getElementById("noteform");
 if(noteform) noteform.addEventListener('submit', addNote);
 
 function addNote(e){
-    e.preventDefault();
+    //e.preventDefault();
 
     let notecontent = document.getElementById("notecontent").value;
     let user = getCurrentUser();
@@ -45,7 +43,6 @@ function addNote(e){
 
     fetchData("/notes/create", note, "POST")
     .then((data) => {
-        //json.toString(data);
       console.log(data);
     })
     .catch((err) =>{
@@ -77,20 +74,6 @@ function showAllNotes(){
     })
     .catch((err)=>{
         console.log(`Error! ${err}`)
-    });
-
-//    fetchData("/notes/", user,"post")
-//     .then((data)=>{
-//         let ul=document.getElementById("allnotes");
-
-//         data.forEach((note)=>{
-//             let li=document.createElement('li');
-//             let text=document.createTextNode(note.notecontent);
-//             li.appendChild(text);
-//             ul.appendChild(li);
-
-//         })
-//     })
- //    
+    });   
 
 }

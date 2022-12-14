@@ -22,7 +22,7 @@ async function getAllUsers() {
 
 // Create  User - Registering
 async function register(user) {
-  let cUser = await getUser(user);
+  //let cUser = await getUser(user);
   let nUser = await doesUserExist(user.username);
   if(nUser.length > 0) throw Error("Username already in use");
 

@@ -65,7 +65,7 @@ async function getNote(note) {
 
 async function getUserNotes(note) {
     let sql;
-    console.log(note.userID);
+    //console.log(note.userID);
     if(note.userID) {
       sql = `
         SELECT * FROM notes
