@@ -20,6 +20,12 @@ form {
     padding: 10px;
 }
 
+.noteinput {
+    width:700px;
+    height:70px;
+    font-family: 'Century Gothic', 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;;
+}
+
 .mynotes h3 {
     font-size: 25px;
     font-weight: bold;
