@@ -1,3 +1,4 @@
+// note models
 const con = require("./db_connect");
 
 // Table Creation 

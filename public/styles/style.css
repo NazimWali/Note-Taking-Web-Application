@@ -1,21 +1,23 @@
-body{
+body, html{
     margin: 0px;
     font-size: 15px;
+    padding: 0;
+    background-color: #f7f3db;
+}
+
+* {
+    box-sizing: border-box;
     font-family: 'Century Gothic', 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 form {
-    border: solid 2px darkblue;
-    border-left: 0px;
-    border-right: 0px;
-    padding: 10px;
-    color: rgb(91, 91, 207);
-    margin-bottom: 15px;
+    padding: 20px;
+    color: #395144;
    
 }
 
 .mynotes {
-    background-color: lightblue;
+    background-color: #F0EBCE;
     font-size: 15px;
     padding: 10px;
 }
@@ -23,7 +25,6 @@ form {
 .noteinput {
     width:700px;
     height:70px;
-    font-family: 'Century Gothic', 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;;
 }
 
 .mynotes h3 {
@@ -31,31 +32,59 @@ form {
     font-weight: bold;
 }
 
+.topnav {
+    background-image: url("/public/images/jan-kahanek-g3O5ZtRk2E4-unsplash.jpg");
+    background-color: #AA8B56;
+    background-blend-mode: multiply;
+    min-height: 75px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-bottom: solid 2px #395144;
+}
+
 .navigation {
-    background-color: lightblue;
+    background-color: #395144;
+    background-blend-mode: multiply;
+    opacity: 70%;
+    width: auto;
     text-align: center;
     font-size: 25px;
     font-weight: bold;
-    padding-top: 10px;
+    padding: 10px;
+    transition: opacity 300ms ease-out;
+    border-bottom: solid 2px #395144;
+    
+}
 
+.navigation a {
+    opacity: 100%;
+    margin: 0;
+}
+
+.navigation:hover {
+    opacity: 100%;
 }
 
 a:link, a:visited {
-    color: darkblue;
+    color: #F0EBCE;
     padding: 3px 5px;
     border-radius: 5px;
+    text-decoration: none;
+    transition: opacity, background-color, color, 300ms ease-out;
 }
 
 a:hover {
-    background-color: darkblue;
-    color: white;
+    background-color: #F0EBCE;
+    color: #4E6C50;
+    opacity: 100%;
 }
 
 .button {
-    color: darkblue;
-    background-color: lightblue;
+    color: #395144;
+    background-color: #F0EBCE;
     margin: 7px;
-    border: solid 2px darkblue;
+    border: solid 2px #395144;
     border-radius: 75px;
     box-shadow: 3px 3px 3px lightgrey;
     text-transform: uppercase;
@@ -63,17 +92,26 @@ a:hover {
     font-family: 'Century Gothic';
     font-size: 12px;
     padding: 5px;
+
+    transition: transform, background-color, color, 300ms ease-out;
+}
+
+.button:hover {
+    transform: scale(105%);
+    background-color: #395144;
+    color: white;
 }
 
 input {
     margin: 3px;
+    font-family: 'Century Gothic', 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 .inputs {
     display: flex;
-    flex-wrap: wrap;
+    align-items: left;
     flex-direction: column;
-    width: 15%;
+    width: 25%;
 }
 
 img {
@@ -81,4 +119,62 @@ img {
     width: 300px;
     margin-left: auto;
     padding-bottom: 15px;
+}
+
+.main-h1 {
+    color: #F0EBCE;
+    text-shadow: #4b4942 5px 5px 5px;
+    font-size: 500%;
+    text-align: center;
+    margin: 25px 15px;
+
+}
+
+#logout-btn {
+    box-shadow: none;
+    background-color: #395144;
+    color: #F0EBCE; 
+
+    transition: transform, background-color, color, 300ms ease-out;
+}
+
+#logout-btn:hover {
+    color: #395144;
+    background-color: #F0EBCE;
+}
+
+.flex-wrapper {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+.footer {
+    display: flex;
+    background-color: #395144;
+    border-top: solid 2px #395144;
+    block-size: 50px;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer ul {
+    text-decoration: none;
+    text-align: center;  
+    list-style: none;
+    padding: 5px;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    font-size: 20px;
+}
+
+.footer li {
+    margin: 0px 5px;
+}
+
+.everything-but-footer {
+    display: block;
+    min-height: 400px;
 }

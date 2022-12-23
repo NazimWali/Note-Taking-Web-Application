@@ -9,34 +9,53 @@
 
 </head>
 <body>
-    <nav class="navigation">
-        <a href="register.html">Register</a>
-        <a href="login.html">Login</a>
-        <a href="note.html">Create a New Note</a>
-        <br>
-        <hr>
-    </nav>
+    <div class="flex-wrapper">
+        <section class="everything-but-footer">
+            <section class="topnav">
+                <nav class="navigation">
+                    <a href="register.html">Register</a>
+                    <a href="login.html">Login</a>
+                    <a href="note.html">Create a New Note</a>
+                    <br>
+                </nav>
 
-    <form id = "registerform">
-        <section class = "inputs">
-            <label for="fullname">Full Name</label>
-            <input type="text" id="fullname" name="fullname">
-            <br>
+                <h1 class="main-h1">Nottaka</h1>
+            </section>
 
-            <label for="username">Username</label>
-            <input type="text" id="username" name="username">
-            <br>
+            <form id = "registerform">
+                <section class = "inputs">
+                    <label for="fullname">Full Name</label>
+                    <input type="text" id="fullname" name="fullname">
+                    <br>
 
-            <label for="password">Password</label>
-            <input type="password" id="password" name="password">
-            <br>
-            
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="username">
+                    <br>
+
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password">
+                    <br>
+                    
+                </section>
+                
+                <input class="button" type="submit" value="Register">
+
+            </form>
+
         </section>
-        
-        <input class="button" type="submit" value="Register">
-        
 
-    </form>
+        <footer class="footer">
+            <ul class="footer-ul">
+                <li>
+                    <a href="register.html">Register</a>
+                </li>
+                <li>
+                    <a href="login.html">Login</a>
+                </li>
+            </ul>
+        </footer>
+
+    </div>
     
     <script type="module" src="scripts/main.js"></script>
     <script type="module" src="scripts/user.js"></script>
