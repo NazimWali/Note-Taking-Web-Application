@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile</title>
+    <link rel="stylesheet" href="./styles/style.css">
+
+</head>
+<body>
+    <div class="flex-wrapper">
+        <section class="everything-but-footer">
+            <section class="topnav">
+                <nav class = "navigation">
+                    
+                </nav>
+
+                <img class="nottakalogo" src="./images/nottaka_transparent.png" alt="Nottaka Logo">
+            </section>
+            
+            <section class="container">
+                <article id="myprofile" class="article">
+                    <h3 class="subheading"> My Profile </h3>
+                    <p id="welcome" >  </p>
+
+                    <p> Don't want to stick with Nottaka anymore? :( </p>
+                    <p> That's alright. We hope you come back soon though! </p>
+
+                    <button class="button" id="delete">Delete My Account</button>
+                </article>
+            </section>
+
+            <section class="container">
+
+                <button class="button" id="showedit">Edit My Profile</button>
+
+                <form id = "editform">
+                    <h3 class="subheading"> Edit Your Profile </h3>
+                    <p> Be aware you may have to log out and log back in to see the reflected changes. </p>
+                    <section class = "inputs">
+                        <label for="fullname">Full Name</label>
+                        <input type="text" id="fullname" name="fullname">
+                        <br>
+    
+                        <label for="username">Username</label>
+                        <input type="text" id="username" name="username">
+                        <br>
+                        
+                    </section>
+                    
+                    <input id="editbutton" class="button" type="submit" value="Update Profile">
+    
+                </form>
+            </section>
+            
+        </section>
+
+        <footer class="footer">
+            
+        </footer>
+
+    </div>
+
+    <script type="module" src="scripts/main.js"></script>
+    <script type="module" src="scripts/profile.js"></script>
+</body>
+</html>

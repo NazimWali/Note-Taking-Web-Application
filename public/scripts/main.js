@@ -1,16 +1,44 @@
 let nav = document.querySelector('nav');
+let footer = document.querySelector('footer');
 
 if(getCurrentUser()) {
+    nav.className = "navigation logged-nav";
     nav.innerHTML = `
         <a href="note.html">My Notes</a>
+        <a href="about.html" >About</a>
+        <a href="profile.html" >My Profile</a>
         <a id="logout-btn" class="button" >Logout</a>
-        <br>
+    `
+
+    footer.innerHTML = `
+    <img class="footerlogo" src="./images/nottaka_transparent.png" alt="Nottaka Logo">
+      <ul class="footer-ul">
+          <li>  
+                <a href="note.html">My Notes</a>
+                <a href="about.html" >About</a>
+                <a href="profile.html" >My Profile</a>
+          </li>
+      </ul>
     `
   } else {
     nav.innerHTML = `
         <a href="register.html">Register</a>
         <a href="login.html" >Login</a>
-        <br>
+        <a href="about.html" >About</a>
+    `
+    footer.innerHTML = `
+    <img class="footerlogo" src="./images/nottaka_transparent.png" alt="Nottaka Logo">
+      <ul class="footer-ul">
+          <li>
+              <a href="register.html">Register</a>
+          </li>
+          <li>
+              <a href="login.html">Login</a>
+          </li>
+          <li>
+              <a href="about.html" >About</a>
+          </li>
+      </ul>
     `
   }
 
@@ -52,8 +80,20 @@ export function getCurrentUser() {
 
 // logout function for current user
 export function removeCurrentUser() {
-    localStorage.removeItem('user')
+    localStorage.removeItem('user');
     window.location.href = "login.html";
+}
+
+let logo = document.getElementsByClassName("nottakalogo");
+if(logo) logo[0].addEventListener('click', goToHome);
+
+logo = document.getElementsByClassName("footerlogo");
+if(logo) logo[0].addEventListener('click', goToHome);
+
+function goToHome(e) {
+    e.preventDefault();
+    
+    window.location.href = "about.html";
 }
 
 function getUsers(e) {

@@ -46,10 +46,11 @@ async function login(user) { // {userName: "sda", password: "gsdhjsga"}
 
 // Update User function
 async function editUser(user) {
-  let sql = `UPDATE users 
-    SET userName = "${user.username}"
-    WHERE userID = ${user.userID}
-  `;
+    let sql = `UPDATE users 
+      SET userName = "${user.username}",
+      fullName = "${user.fullname}"
+      WHERE userID = ${user.userID}
+    `;
 
   await con.query(sql);
   let updatedUser = await getUser(user);
@@ -59,7 +60,7 @@ async function editUser(user) {
 // Delete User function
 async function deleteUser(user) {
   let sql = `DELETE FROM users
-    WHERE userID = ${user.userid}
+    WHERE userID = ${user.userID}
   `
   await con.query(sql);
 }

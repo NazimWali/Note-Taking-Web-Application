@@ -12,50 +12,38 @@
     <div class="flex-wrapper">
         <section class="everything-but-footer">
             <section class="topnav">
-                <nav class="navigation">
-                    <a href="register.html">Register</a>
-                    <a href="login.html">Login</a>
-                    <a href="note.html">Create a New Note</a>
-                    <br>
+                <nav class="navigation logged-nav">
+                    
                 </nav>
 
-                <h1 class="main-h1">Nottaka</h1>
-            </section>
-
-            <section class="">
-
+                <img class="nottakalogo" src="./images/nottaka_transparent.png" alt="Nottaka Logo">
             </section>
             
-            <form id="noteform">
+            <form id="noteform" class="container">
                 <label for="notecontent">Enter Your Note Here</label>
                 <br>
-                <input class="noteinput" type="text" id="notecontent" name="notecontent">
+                <textarea class="noteinput" type="textarea" id="notecontent" name="notecontent"></textarea>
                 <br>
                 
                 <input class="button" type="submit" value="Save Note">
-
+            <!--
+                <img class="note-form-image" src="./images/notetakingpic.jpg" alt="Picture of someone writing a note">
+            -->
             </form>
 
-            <section class ="mynotes">
-                <h3>My Saved Notes</h3>
+            <section class ="mynotes container">
+                <h3 class="subheading">My Saved Notes</h3>
                 <ul id="allnotes">
 
                 </ul>
 
-                <img src="./images/notetakingpic.jpg" alt="Picture of someone writing a note">
+                
 
             </section>
         </section>
 
         <footer class="footer">
-            <ul class="footer-ul">
-                <li>
-                    <a href="register.html">Register</a>
-                </li>
-                <li>
-                    <a href="login.html">Login</a>
-                </li>
-            </ul>
+            
         </footer>
     </div>
     

@@ -30,6 +30,10 @@ class Note{
 
 }
 
+if (!getCurrentUser()) {
+    window.location.href = "login.html";
+}
+
 let noteform = document.getElementById("noteform");
 if(noteform) noteform.addEventListener('submit', addNote);
 
@@ -48,6 +52,14 @@ function addNote(e){
     .catch((err) =>{
       console.log(err);
     })
+}
+
+
+
+function deleteNote(e){
+    e.preventDefault();
+
+
 }
 
 let user = getCurrentUser();

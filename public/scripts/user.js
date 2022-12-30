@@ -38,6 +38,10 @@ class User{
 
 }
 
+if (getCurrentUser()) {
+    window.location.href = "note.html";
+}
+
 let registerform = document.getElementById("registerform");
 if(registerform) registerform.addEventListener('submit', register);
 
